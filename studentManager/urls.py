@@ -22,7 +22,6 @@ def login(request):
     :param request: 用户请求相关的所有信息 （对象）
     :return:
     """
-    print(request.GET)
     # 处理get请求
     if request.method == 'GET':
         # 当请求为get请求的的时候，跳转到login.html.需要使用到render
