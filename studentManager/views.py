@@ -8,6 +8,7 @@ def classes(request):
     # 连接mysql
     conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', password='root123456', db='studentManager',
                            charset='utf8')
+    # 此处的cursor 一定要写成字典类型. 否则查询结构 返回元祖类型
     cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
     cursor.execute('select id,title from class')
     # 返回多个值
