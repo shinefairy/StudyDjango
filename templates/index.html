@@ -6,5 +6,39 @@
 </head>
 <body>
     欢迎您
+    <h1>模板标记相关学习</h1>
+    <p>{{ name }}</p>
+    <p>获取到users中第一个元素</p>
+    <p>{{ users.0 }}</p>
+    <p>获取到users中第二个元素</p>
+    <p>{{ users.1 }}</p>
+    <ul>
+        {% for user in users %}
+            <li>{{ user }} </li>
+        {% endfor %}
+    </ul>
+
+
+    <table>
+        <thead>
+        <tr>
+            <td>编号</td>
+            <td>姓名</td>
+            <td>邮箱</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in  user_list_dic %}
+
+            <tr>
+                <td>{{ user.ID }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
 </body>
 </html>

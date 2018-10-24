@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.shortcuts import HttpResponse,render,redirect
+from studentManager import views
 # login方法处理登录
 def login(request):
     """
@@ -39,9 +40,28 @@ def login(request):
             # render中可以设置请求的地址和携带回页面的数据。
             return render(request,'login.html',{'msg':'用户名或密码错误'})
 def index(request):
-    return render(request,'index.html',)
+    return render(request, 'index.html',
+                  {
+                      'name': 'peiqi',
+                      'users': ['林海峰', '林志平'],
+                      'user_list_dic': [
+                          {'ID': 1, 'name': '王小二', 'email': '349032432@qq.com'},
+                          {'ID': 2, 'name': '王小三', 'email': '349032132@qq.com'},
+                          {'ID': 3, 'name': '王小花', 'email': '349032432@qq.com'}
+                      ]
+
+                  }
+
+                  )
+
+
 # 配置路由信息
 urlpatterns = [
     url(r'^login/',login),
-    url(r'^index/',index)
+    url(r'^index/', index),
+    url(r'^classes/', views.classes),
+    url(r'^add_class/', views.add_class),
+    url(r'^edit_class/', views.edit_class),
+    url(r'^del_class/', views.del_class),
+
 ]
